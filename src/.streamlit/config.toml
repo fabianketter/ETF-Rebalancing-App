@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#FFFFFF"               # z.B. Buttons, Highlights
+backgroundColor = "#ADD8E6"            # Hintergrund der Seite
+secondaryBackgroundColor = "#FFFFFF"   # Hintergrund von Boxen, Sidebars
+textColor = "#000000"                  # Textfarbe
+font = "sans serif"                      # Schriftart: "sans serif", "serif" oder "monospace"
