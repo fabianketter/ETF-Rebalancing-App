@@ -77,7 +77,7 @@ class RebalancingApp(tk.Tk):
     #initializes the input view
     def init_input_view(self):
         frame = tk.Frame(self, bg =self.color)
-        self.frames["input"] = framehttps://chatgpt.com/library
+        self.frames["input"] = frame
 
         # inside __init__, after you've created input_frame
         self.etf_container = tk.Frame(frame, bg=self.color)
