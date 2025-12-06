@@ -89,7 +89,7 @@ class RebalancingApp(tk.Tk):
                  ).grid(row=0, column=1, columnspan=1, sticky="ew", pady=(8,8))
 
         #sets the saving rate to 100
-        self.saving_rate_var = tk.DoubleVar(value=100)
+        self.saving_rate_var = tk.DoubleVar(value=1000)
         #entry field in the next row
         tk.Entry(self.etf_container, textvariable=self.saving_rate_var).grid(row=1, column=1, columnspan=1, sticky="ew", padx=50, pady=(0,8))
 
@@ -103,8 +103,15 @@ class RebalancingApp(tk.Tk):
         self.name_entries = []
         self.value_entries = []
         self.alloc_entries = []
-        self.add_etf_row("ETF 1", 0, 0)  
-        self.add_etf_row("ETF 2", 0, 0)
+        self.add_etf_row("MSCI World", 0, 49)  
+        self.add_etf_row("MSCI EM IMI", 0, 14)
+        self.add_etf_row("MSCI Small Caps", 0, 8)
+        self.add_etf_row("Europe Stoxx 600", 0, 8)
+        self.add_etf_row("MSCI Information Technology", 0, 8)
+        self.add_etf_row("MSCI Global Semiconductors", 0, 8)
+        self.add_etf_row("Bitcoin", 0, 3.21)
+        self.add_etf_row("Ethereum", 0, 1.15)
+        self.add_etf_row("Ripple", 0, 0.64)
 
         # button to add more rows
         tk.Button(
@@ -113,7 +120,7 @@ class RebalancingApp(tk.Tk):
             font=('Arial', 14, 'bold'),
             bg=self.button_color,
             command=self.add_etf_row
-        ).grid(row=11, column=0, columnspan = 1, pady=10)
+        ).grid(row=30, column=0, columnspan = 1, pady=10)
 
         #calculate rebalancing button
         tk.Button(
@@ -122,7 +129,7 @@ class RebalancingApp(tk.Tk):
             font=("Arial", 14, "bold"),
             bg = self.button_color,
             command=self.calculate_rebalancing
-        ).grid(row=11, column=1, columnspan=1, pady=10)
+        ).grid(row=30, column=1, columnspan=1, pady=10)
 
         #configure columns
         frame.grid_columnconfigure(0, weight=1)
@@ -342,7 +349,7 @@ class RebalancingApp(tk.Tk):
         axs[1].set_title("Target-Allocation", font = 'Arial', fontsize = 12, fontweight = 'bold', pad = 10)
 
         # Legend between the plots
-        fig.legend(wedges1, labels, loc='lower center', ncol=1, fontsize=10, frameon=False, bbox_to_anchor=(0.5, 0.5))
+        fig.legend(wedges1, labels, loc='lower center', ncol=1, fontsize=10, frameon=False, bbox_to_anchor=(0.5, 0.25))
         fig.subplots_adjust(left=0.05, right=0.95)
         #draw plt figure into the frame
         canvas = FigureCanvasTkAgg(fig, master=self.plot_frame)
